@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Users - Index')
+<title>Edit - {{ $user->name }}</title>
 
 @section('content')
     <h1>Edit - {{ $user->name }}</h1>

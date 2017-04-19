@@ -28,7 +28,7 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class);
     }
 
-    public function surveys()
+    public function survey()
     {
         return $this->belongsToMany('App\Survey', 'users_surveys');
     }
