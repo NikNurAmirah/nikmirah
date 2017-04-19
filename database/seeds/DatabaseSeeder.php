@@ -13,7 +13,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        //disable foreign key check for this connection before running seeders
+        $this->call(RoleTableSeeder::class);
+        $this->call(PermissionsTableSeeder::class);
+
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         Model::unguard();
 
@@ -27,5 +29,10 @@ class DatabaseSeeder extends Seeder
         factory(User::class, 50)->create();
 
         Model::reguard();
+
+        $this->call(UserTableSeeder::class);
+        $this->call(RoleUserTableSeeder::class);
+        $this->call(PermissionRoleTableSeeder::class);
+
     }
 }

@@ -8,7 +8,7 @@
     <section>
         @if (isset ($users))
 
-            <table>
+            <table class="small-12 large-12">
                 <tr>
                     <th>Username</th>
                     <th>E-Mail</th>

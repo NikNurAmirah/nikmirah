@@ -11,13 +11,14 @@
 
 @include('includes.navbar')
 
-@yield('banner')
-<div style="padding-top: 6px;">
-</div>
+<div class="row">
 @yield('content')
-
+</div>
 <script>
     $(document).ready(function() {
         $(document).foundation();
     });
 </script>
+
+</body>
+</html>
