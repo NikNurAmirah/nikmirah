@@ -38,6 +38,7 @@
                             <ul class="dropdown">
                                 <li><a href="/admin/users">See all Users</a></li>
                                 <li><a href="#">See all Surveys</a> </li>
+                                <li><a href="#">Test</a> </li>
                             </ul>
                         @endif
                     </li>
