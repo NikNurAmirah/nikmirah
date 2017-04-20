@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Survey;
+use App\User;
 use Auth;
 
 class SurveyController extends Controller
@@ -18,8 +19,10 @@ class SurveyController extends Controller
     public function index()
     {
         $surveys = Survey::all();
+        $users = User::all();
 
-        return view('admin/surveys/index', ['surveys' => $surveys]);
+
+        return view('admin/surveys/index', ['surveys' => $surveys], ['users' => $users]);
     }
 
     /**

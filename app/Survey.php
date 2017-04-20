@@ -23,9 +23,9 @@ class Survey extends Model
         return $this->hasOne('App\Question');
     }
 
-    public function users()
+    public function user()
     {
-        return $this->belongsToMany('App\User', 'users_surveys');
+        return $this->belongsTo('App\User', 'creator_id');
     }
 
 

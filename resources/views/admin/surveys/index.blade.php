@@ -18,7 +18,7 @@
                 </tr>
                 @foreach ($surveys as $survey)
                     <tr>
-                        <td>{{ $survey->creator_id}}</td>
+                        <td><a href="/admin/users/{{ $survey->creator_id }}/edit">{{ $survey->user->name}}</a></td>
                         <td>{{ $survey->title }}</td>
                         <td>{{ $survey->description}}</td>
                         <td>{{ $survey->active}}</td>
