@@ -16,7 +16,7 @@ class CreateSurveyTable extends Migration
            $table->increments('id');
            $table->integer('creator_id')->unsigned()->default(0);
            $table->foreign('creator_id')->references('id')->on('users')->onDelete('cascade');
-           $table->string('slug')->unique();
+           $table->string('slug')->nullable()->unique();
            $table->longText('title')->nullable();
            $table->longText('description')->nullable();
            $table->boolean('active')->default(false);

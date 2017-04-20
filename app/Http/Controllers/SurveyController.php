@@ -40,11 +40,9 @@ class SurveyController extends Controller
      */
     public function store(Request $request)
     {
-        $data['creator_id'] = Auth::user()->id;
         $input = $request->all();
 
         Survey::create($input);
-        Survey::create($data);
 
         return redirect('admin/surveys');
     }

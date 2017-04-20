@@ -8,6 +8,9 @@
 
 {!! Form::open(array('action' => 'SurveyController@store', 'id' => 'createsurvey')) !!}
 {{ csrf_token() }}
+
+{!! Form::hidden('creator_id', Auth::user()->id) !!}
+
 <div class="row col-sm-12 col-lg-12">
     {!! Form::label('title', 'Title:') !!}
     {!! Form::text('title', null, ['class' => 'large-8 columns']) !!}
@@ -16,11 +19,6 @@
 <div class="row col-sm-12 col-lg-12">
     {!! Form::label('description', 'Description:') !!}
     {!! Form::textarea('description', null, ['class' => 'large-8 columns']) !!}
-</div>
-
-<div class="row col-sm-12 col-lg-12">
-    {!! Form::label('slug', 'Slug:') !!}
-    {!! Form::text('slug', null, ['class' => 'large-8 columns']) !!}
 </div>
 
 <h3>Make active?</h3>
