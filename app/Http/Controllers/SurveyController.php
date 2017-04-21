@@ -8,7 +8,9 @@ use App\Http\Requests;
 use App\Survey;
 use App\User;
 use Auth;
-
+use Gate;
+use DB;
+use Illuminate\Support\Facades\Input;
 class SurveyController extends Controller
 {
     /**
@@ -16,13 +18,28 @@ class SurveyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $surveys = Survey::all();
         $users = User::all();
 
+        $mysurveys = DB::table('survey')->where('creator_id', Auth::user()->id )->get();
 
-        return view('admin/surveys/index', ['surveys' => $surveys], ['users' => $users]);
+        if (Gate::allows('see_all_users')) {
+
+            return view('admin/surveys/index', ['surveys' => $surveys], ['users' => $users]);
+        }
+
+        return view('/surveys/index', ['mysurveys' => $mysurveys]);
+
+
+
+
     }
 
     /**
@@ -46,8 +63,10 @@ class SurveyController extends Controller
         $input = $request->all();
 
         Survey::create($input);
-
-        return redirect('admin/surveys');
+        if (Gate::allows('see_all_users')) {
+            return redirect('admin/surveys');
+        }
+        return view('surveys/index');
     }
 
     /**
@@ -69,7 +88,15 @@ class SurveyController extends Controller
      */
     public function edit($id)
     {
-        //
+        $survey = Survey::where('id',$id)->first();
+
+        // if survey does not exist return to list
+        if(!$survey)
+        {
+            return redirect('admin/surveys/index');
+            // you could add on here the flash messaging of article does not exist.
+        }
+        return view('admin/surveys/edit')->with('survey', $survey);
     }
 
     /**
@@ -81,7 +108,15 @@ class SurveyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $survey = Survey::findOrFail($id);
+
+        $survey->title = Input::get('title');
+        $survey->description = Input::get('description');
+        $survey->active = Input::get('active');
+        $survey->anonymous = Input::get('anonymous');
+        $survey->save();
+
+        return redirect('/surveys');
     }
 
     /**
@@ -92,6 +127,9 @@ class SurveyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $survey = Survey::find($id);
+        $survey->delete();
+
+        return redirect('/surveys');
     }
 }

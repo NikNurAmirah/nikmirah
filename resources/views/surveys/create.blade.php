@@ -1,13 +1,13 @@
 @extends('layouts.master')
 
-@section('title', 'Surveys - Index')
+@section('title', 'Surveys - Create')
 
 @section('content')
 
 <h1>Add Survey</h1>
 
 {!! Form::open(array('action' => 'SurveyController@store', 'id' => 'createsurvey')) !!}
-{{ csrf_token() }}
+{{ Form::hidden(csrf_token()) }}
 
 {!! Form::hidden('creator_id', Auth::user()->id) !!}
 

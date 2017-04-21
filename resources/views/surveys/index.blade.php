@@ -1,9 +1,9 @@
 @extends('layouts.master')
 
-@section('title', 'Surveys - Index')
+@section('title', 'My Surveys - Index')
 
 @section('content')
-    <h1>All Surveys</h1>
+    <h1>My Surveys</h1>
 
     <section>
         @if (isset ($surveys))
@@ -18,9 +18,9 @@
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
-                @foreach ($surveys as $survey)
+                @foreach ($mysurveys as $survey)
                     <tr>
-                        <td><a href="/admin/users/{{ $survey->creator_id }}/edit">{{ $survey->user->name}}</a></td>
+                        <td>{{ $survey->user->name }}</td>
                         <td>{{ $survey->title }}</td>
                         <td>{{ $survey->description}}</td>
                         <td>
@@ -37,12 +37,8 @@
                                 <span class="label label-danger" style="background-color:red;">No</span>
                             @endif
                         </td>
-                        <td><a href="/surveys/{{ $survey->id }}/edit"><span class="label label-success" style="background-color:blue;">Edit</span></a></td>
-                        <td>
-                            {!! Form::open(['method' => 'DELETE','route' => ['surveys.destroy', $survey->id]]) !!}
-                            {{ Form::submit('Delete', ['class' => 'label label-success', 'style' => 'background-colour:red;']) }}
-                        </td>
-
+                        <td><a><span class="button">Edit</span></a></td>
+                        <td><a><span class="button">Delete</span></a></td>
                     </tr>
                 @endforeach
             </table>

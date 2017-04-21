@@ -16,7 +16,7 @@
 
     <div>
         {!! Form::label('email', 'Email Address:') !!}
-        {!! Form::textarea('email', null) !!}
+        {!! Form::text('email', null) !!}
     </div>
 
     <div>
