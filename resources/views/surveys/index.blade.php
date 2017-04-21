@@ -6,11 +6,10 @@
     <h1>My Surveys</h1>
 
     <section>
-        @if (isset ($surveys))
+        @if (isset ($mysurveys))
 
             <table class="small-12 large-12">
                 <tr>
-                    <th>Creator</th>
                     <th>Title</th>
                     <th>Description</th>
                     <th>Active</th>
@@ -20,7 +19,6 @@
                 </tr>
                 @foreach ($mysurveys as $survey)
                     <tr>
-                        <td>{{ $survey->user->name }}</td>
                         <td>{{ $survey->title }}</td>
                         <td>{{ $survey->description}}</td>
                         <td>
@@ -37,8 +35,12 @@
                                 <span class="label label-danger" style="background-color:red;">No</span>
                             @endif
                         </td>
-                        <td><a><span class="button">Edit</span></a></td>
-                        <td><a><span class="button">Delete</span></a></td>
+                        <td><a href="/surveys/{{ $survey->id }}/edit"><span class="label label-success" style="background-color:blue;">Edit</span></a></td>
+                        <td>
+                            {!! Form::open(['method' => 'DELETE','route' => ['surveys.destroy', $survey->id]]) !!}
+                            {{ Form::submit('Delete', ['class' => 'label label-success', 'style' => 'background-colour:red;']) }}
+                            {{Form::close()}}
+                        </td>
                     </tr>
                 @endforeach
             </table>

@@ -28,14 +28,14 @@ class SurveyController extends Controller
         $surveys = Survey::all();
         $users = User::all();
 
-        $mysurveys = DB::table('survey')->where('creator_id', Auth::user()->id )->get();
+        $mysurveys = DB::table('survey')->where('creator_id', Auth::user()->id)->get();
 
         if (Gate::allows('see_all_users')) {
 
-            return view('admin/surveys/index', ['surveys' => $surveys], ['users' => $users]);
+            return view('admin/surveys/index', ['surveys' => $surveys], ['users' => $users], ['mysurveys' => $mysurveys]);
         }
 
-        return view('/surveys/index', ['mysurveys' => $mysurveys]);
+        return view('/surveys/index', ['mysurveys' => $mysurveys], ['users' => $users]);
 
 
 
@@ -63,9 +63,6 @@ class SurveyController extends Controller
         $input = $request->all();
 
         Survey::create($input);
-        if (Gate::allows('see_all_users')) {
-            return redirect('admin/surveys');
-        }
         return view('surveys/index');
     }
 

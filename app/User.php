@@ -30,7 +30,7 @@ class User extends Authenticatable
 
     public function survey()
     {
-        return $this->hasMany(Survey::class);
+        return $this->hasMany('App\Survey');
     }
 
     public function hasRole($role) {
