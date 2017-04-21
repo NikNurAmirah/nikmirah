@@ -22,5 +22,6 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/home', 'HomeController@index');
     Route::resource('/admin/users', 'UserController' );
     Route::resource('/surveys', 'SurveyController' );
+    Route::resource('/admin/surveys', 'SurveyAdmin' );
 });
 

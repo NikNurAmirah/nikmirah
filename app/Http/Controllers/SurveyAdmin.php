@@ -13,7 +13,7 @@ use DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 
-class SurveyController extends Controller
+class SurveyAdmin extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,11 +27,14 @@ class SurveyController extends Controller
 
     public function index()
     {
+        $surveys = Survey::all();
         $users = User::all();
 
-        $mysurveys = DB::table('survey')->where('creator_id', Auth::user()->id)->get();
+        if (Gate::allows('see_all_users')) {
 
-        return view('/surveys/index', ['mysurveys' => $mysurveys], ['users' => $users]);
+            return view('admin/surveys/index', ['surveys' => $surveys], ['users' => $users]);
+        }
+
 
 
 
@@ -60,7 +63,7 @@ class SurveyController extends Controller
         $input = $request->all();
 
         Survey::create($input);
-        return view('surveys/index');
+        return view('admin/surveys/index');
     }
 
     /**
@@ -87,7 +90,7 @@ class SurveyController extends Controller
         // if survey does not exist return to list
         if(!$survey)
         {
-            return redirect('a/surveys/index');
+            return redirect('admin/surveys/index');
             // you could add on here the flash messaging of article does not exist.
         }
         return view('admin/surveys/edit')->with('survey', $survey);
@@ -124,6 +127,7 @@ class SurveyController extends Controller
         $survey = Survey::find($id);
         $survey->delete();
 
-        return redirect('/surveys');
+        return redirect('admin/surveys/index');
     }
 }
+
