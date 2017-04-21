@@ -93,13 +93,17 @@ class SurveyController extends Controller
     {
         $survey = Survey::where('id',$id)->first();
 
-        // if survey does not exist return to list
-        if(!$survey)
-        {
-            return redirect('/surveys/index');
-            // you could add on here the flash messaging of article does not exist.
+        if(!$survey){
+            return view('/surveys/index');
         }
-        return view('admin/surveys/edit')->with('survey', $survey);
+        if(Auth::id() !== $survey->creator_id){
+            return view('/surveys/index');
+        }
+        if(Gate::allows('see_all_users')){
+            return view('/surveys/edit')->with('survey', $survey);
+        }
+        return view('/surveys/edit')->with('survey', $survey);
+
     }
 
     /**

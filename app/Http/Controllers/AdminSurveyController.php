@@ -13,7 +13,7 @@ use DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 
-class SurveyAdmin extends Controller
+class AdminSurveyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -88,12 +88,13 @@ class SurveyAdmin extends Controller
         $survey = Survey::where('id',$id)->first();
 
         // if survey does not exist return to list
-        if(!$survey)
-        {
-            return redirect('admin/surveys/index');
-            // you could add on here the flash messaging of article does not exist.
+        if(!$survey){
+            return view('/surveys/index');
         }
-        return view('admin/surveys/edit')->with('survey', $survey);
+        if(Gate::allows('see_all_users')){
+            return view('admin/surveys/edit')->with('survey', $survey);
+        }
+        return view('admin/surveys/index');
     }
 
     /**
