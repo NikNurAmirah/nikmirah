@@ -82,7 +82,10 @@ class UserController extends Controller
             return redirect('/admin/users');
             // you could add on here the flash messaging of article does not exist.
         }
-        return view('admin/users/edit')->with('user', $user)->with('roles', $roles);
+        if (Gate::allows('see_all_users')) {
+            return view('admin/users/edit')->with('user', $user)->with('roles', $roles);
+        }
+        return view('/home');
     }
 
     /**

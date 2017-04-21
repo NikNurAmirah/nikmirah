@@ -13,7 +13,7 @@
         <ul class="left">
             <li><a href="/">Home</a></li>
             <li class="has-dropdown active">
-                <a href="/surveys">Surveys</a>
+                <a href="/surveys">My Surveys</a>
             </li>
         </ul>
     </section>
