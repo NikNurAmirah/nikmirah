@@ -20,7 +20,7 @@ class Survey extends Model
 
     public function question()
     {
-        return $this->hasOne('App\Question');
+        return $this->hasMany('App\Question');
     }
 
     public function user()

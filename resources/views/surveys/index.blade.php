@@ -15,6 +15,7 @@
                     <th>Active</th>
                     <th>Anonymous</th>
                     <th>Edit</th>
+                    <th>Add Questions</th>
                     <th>Delete</th>
                 </tr>
                 @foreach ($mysurveys as $survey)
@@ -36,6 +37,7 @@
                             @endif
                         </td>
                         <td><a href="/surveys/{{ $survey->id }}/edit"><span class="label label-success" style="background-color:blue;">Edit</span></a></td>
+                        <td><a href="/surveys/{{ $survey->id }}/add"><span class="label label-success" style="background-color:yellow; color:black;">Add</span></a></td>
                         <td>
                             {!! Form::open(['method' => 'DELETE','route' => ['surveys.destroy', $survey->id]]) !!}
                             {{ Form::submit('Delete', ['class' => 'label label-success', 'style' => 'background-colour:red;']) }}
@@ -54,7 +56,5 @@
         {!! Form::submit('Add Survey', ['class' => 'button']) !!}
     </div>
     {{ Form::close() }}
-
-    @include('includes.questiontypes.radio')
 
 @endsection

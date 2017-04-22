@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model
 {
+    protected $table = 'question';
+
     protected $fillable = [
         'title',
         'pre_question_id',
@@ -15,6 +17,10 @@ class Question extends Model
         'require',
     ];
 
+    public function survey()
+    {
+        return $this->belongsTo('App\Survey', 'survey_id');
+    }
     public function sub_questions()
     {
         return $this->hasMany('App\Question', 'pre_question_id');

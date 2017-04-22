@@ -10,6 +10,7 @@ use App\User;
 use Auth;
 use Gate;
 use DB;
+use App\Question;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 
@@ -138,5 +139,20 @@ class SurveyController extends Controller
         $survey->delete();
 
         return redirect('/surveys');
+    }
+    public function add($id)
+    {
+        $survey = Survey::where('id',$id)->first();
+
+        if(!$survey){
+            return redirect('/surveys/index');
+        }
+        if(Auth::id() !== $survey->creator_id){
+            return view('/surveys/index');
+        }
+        if(Gate::allows('see_all_users')){
+            return view('/surveys/add')->with('survey', $survey);
+        }
+        return view('/surveys/add')->with('survey', $survey);
     }
 }
