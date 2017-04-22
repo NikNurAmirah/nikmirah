@@ -36,7 +36,7 @@
     <br>
 
     <div class="row large-4 columns">
-        {!! Form::submit('Update Survey') !!}
+        {!! Form::submit('Update Survey', ['class' => 'button']) !!}
     </div>
     {!! Form::close() !!}
 

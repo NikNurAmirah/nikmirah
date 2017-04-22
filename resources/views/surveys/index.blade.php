@@ -55,4 +55,6 @@
     </div>
     {{ Form::close() }}
 
+    @include('includes.questiontypes.radio')
+
 @endsection

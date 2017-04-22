@@ -94,7 +94,7 @@ class SurveyController extends Controller
         $survey = Survey::where('id',$id)->first();
 
         if(!$survey){
-            return view('/surveys/index');
+            return redirect('/surveys/index');
         }
         if(Auth::id() !== $survey->creator_id){
             return view('/surveys/index');

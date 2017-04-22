@@ -89,7 +89,7 @@ class AdminSurveyController extends Controller
 
         // if survey does not exist return to list
         if(!$survey){
-            return view('/surveys/index');
+            return redirect('/surveys/index');
         }
         if(Gate::allows('see_all_users')){
             return view('admin/surveys/edit')->with('survey', $survey);
