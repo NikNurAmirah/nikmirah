@@ -18,8 +18,7 @@
 
 </script>
 
-<form method='post'>
-    <input id='theButton' type='button' value='Add Option' class="button">
+<form method='GET'>
+    <input id='theButton' type='button' value='Add Option'>
     <div id='theForm'></div>
-    <input type='submit' value='Submit'>
 </form>

@@ -17,7 +17,7 @@ class CreateQuestionTable extends Migration
             $table->longText('title');
             $table->integer('pre_question_id')->nullable()->unsigned();
             $table->integer('survey_id')->unsigned();
-            $table->integer('type_id')->nullable()->unsigned();
+            $table->string('question_type');
             $table->boolean('require')->default(false);
             $table->timestamps();
         });
@@ -25,7 +25,6 @@ class CreateQuestionTable extends Migration
         Schema::table('question', function($table) {
             $table->foreign('pre_question_id')->references('id')->on('question');
             $table->foreign('survey_id')->references('id')->on('survey');
-            $table->foreign('type_id')->references('id')->on('type');
         });
 
     }

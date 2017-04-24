@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Survey;
 use App\User;
+use App\Question;
 use Auth;
 use Gate;
 use DB;
-use App\Question;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 
@@ -61,6 +61,7 @@ class SurveyController extends Controller
         $input = $request->all();
 
         Survey::create($input);
+
         return view('surveys/index');
     }
 
@@ -73,6 +74,7 @@ class SurveyController extends Controller
     public function show($id)
     {
         $survey = Survey::where('id',$id)->first();
+        $question = Question::where('survey_id', $id)->get();
 
         // if article does not exist return to list
         if(!$survey)
@@ -80,7 +82,7 @@ class SurveyController extends Controller
             return redirect('/surveys/index'); // you could add on here the flash messaging of article does not exist.
         }
 
-            return view('/surveys/show')->withSurvey($survey);
+            return view('/surveys/show')->withSurvey($survey)->withQuestion($question);
 
     }
 
@@ -155,4 +157,5 @@ class SurveyController extends Controller
         }
         return view('/surveys/add')->with('survey', $survey);
     }
+
 }

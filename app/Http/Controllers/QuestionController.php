@@ -26,7 +26,7 @@ class QuestionController extends Controller
 
     $surveys = DB::table('survey')->where('id', 'survey_id')->get();
 
-    return view('surveys/questions/create', ['question' => $questions], ['users' => $users], ['survey' => $surveys]);
+    return view('surveys/index', ['question' => $questions], ['users' => $users], ['survey' => $surveys]);
 }
 
     /**
@@ -41,7 +41,7 @@ class QuestionController extends Controller
 
     $surveys = DB::table('survey')->where('id', 'survey_id')->get();
 
-    return view('surveys/questions/create', ['question' => $questions], ['users' => $users], ['survey' => $surveys]);
+    return view('surveys/index', ['question' => $questions], ['users' => $users], ['survey' => $surveys]);
 
 }
 
@@ -56,6 +56,7 @@ class QuestionController extends Controller
     $input = $request->all();
 
     Question::create($input);
+    return view('surveys/index');
 
 }
 
