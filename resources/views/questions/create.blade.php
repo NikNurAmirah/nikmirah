@@ -10,8 +10,7 @@
     {{ Form::hidden(csrf_token()) }}
 
     <div class="row col-sm-12 col-lg-12">
-        {!! Form::label('survey_id', 'Survey ID:') !!}
-        {!! Form::text('survey_id', null, ['class' => 'large-8 columns']) !!}
+        {!! Form::hidden('survey_id', $survey->id, ['class' => 'large-8 columns']) !!}
     </div>
 
     <div class="row col-sm-12 col-lg-12">

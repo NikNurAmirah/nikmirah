@@ -56,7 +56,7 @@ class QuestionController extends Controller
     $input = $request->all();
 
     Question::create($input);
-    return view('surveys/index');
+    return redirect('surveys/index');
 
 }
 

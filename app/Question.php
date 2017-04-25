@@ -13,7 +13,7 @@ class Question extends Model
         'pre_question_id',
         'survey_id',
         'option_id',
-        'type_id',
+        'question_type',
         'require',
     ];
 
@@ -38,7 +38,7 @@ class Question extends Model
 
     public function type()
     {
-        return $this->hasOne('App\Type');
+        return $this->hasOne('App\Type', 'question_type');
     }
 
     public function answer()

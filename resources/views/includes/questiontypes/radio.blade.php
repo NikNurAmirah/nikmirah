@@ -8,7 +8,8 @@
             $('#theButton').click(addAnotherTextBox);
 
             function addAnotherTextBox() {
-                $("#theForm").append("<br><label>Option:<input type='text' name='teilnehmer_" + i + "' >");
+                $("#theForm").append("<br><label>Option:</label>" +
+                    "<input type='text' name='teilnehmer_" + i + "' >");
             }
 
 

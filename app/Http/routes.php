@@ -23,7 +23,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::resource('/admin/users', 'UserController' );
     Route::resource('/surveys', 'SurveyController' );
     Route::resource('/admin/surveys', 'AdminSurveyController' );
-    Route::resource('surveys/questions/create', 'QuestionController' );
+    Route::resource('surveys/index', 'QuestionController' );
     Route::resource('surveys/{id}/add', 'SurveyController@add' );
 
 });

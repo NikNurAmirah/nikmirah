@@ -23,7 +23,7 @@
     </table>
 
     @if($survey->creator_id == Auth::user()->id)
-            <a href="/surveys/{{ $survey->id }}/add"><span class="button" style="background-color:greenyellow; color:black;">Add questions now!</span></a>
+            <a href="/surveys/{{ $survey->id }}/add"><span class="button" style="background-color:greenyellow; color:black;">Add Question</span></a>
     @endif
 
 @endsection

@@ -60,9 +60,10 @@ class SurveyController extends Controller
     {
         $input = $request->all();
 
-        Survey::create($input);
+        $survey = Survey::create($input);
 
-        return view('surveys/index');
+        return redirect('/surveys/'. $survey->id);
+//        return view('surveys/index');
     }
 
     /**
@@ -79,7 +80,7 @@ class SurveyController extends Controller
         // if article does not exist return to list
         if(!$survey)
         {
-            return redirect('/surveys/index'); // you could add on here the flash messaging of article does not exist.
+            return redirect('/surveys'); // you could add on here the flash messaging of article does not exist.
         }
 
             return view('/surveys/show')->withSurvey($survey)->withQuestion($question);

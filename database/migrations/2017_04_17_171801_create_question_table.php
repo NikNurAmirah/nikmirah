@@ -13,7 +13,7 @@ class CreateQuestionTable extends Migration
     public function up()
     {
         Schema::create('question', function (Blueprint $table){
-            $table->increments('id');
+            $table->increments('id')->onDelete('cascade');
             $table->longText('title');
             $table->integer('pre_question_id')->nullable()->unsigned();
             $table->integer('survey_id')->unsigned();

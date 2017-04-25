@@ -13,7 +13,7 @@ class CreateOptionTable extends Migration
     public function up()
     {
         Schema::create('option', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id')->onDelete('cascade');
             $table->string('title');
             $table->string('description');
             $table->timestamps();

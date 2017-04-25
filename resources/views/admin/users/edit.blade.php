@@ -29,7 +29,7 @@
     </div>
 
     <div>
-        {!! Form::submit('Update User and Roles') !!}
+        {!! Form::submit('Update User and Roles', ['class' => 'button']) !!}
     </div>
 
 

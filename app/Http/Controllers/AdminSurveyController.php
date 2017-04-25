@@ -128,7 +128,7 @@ class AdminSurveyController extends Controller
         $survey = Survey::find($id);
         $survey->delete();
 
-        return redirect('admin/surveys/index');
+        return redirect('admin/surveys');
     }
 }
 

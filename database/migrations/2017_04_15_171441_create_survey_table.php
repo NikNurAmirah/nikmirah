@@ -13,7 +13,7 @@ class CreateSurveyTable extends Migration
     public function up()
     {
         Schema::create('survey', function (Blueprint $table) {
-           $table->increments('id');
+           $table->increments('id')->onDelete('cascade');
            $table->integer('creator_id')->unsigned()->default(0);
            $table->foreign('creator_id')->references('id')->on('users')->onDelete('cascade');
            $table->string('slug')->nullable()->unique();
