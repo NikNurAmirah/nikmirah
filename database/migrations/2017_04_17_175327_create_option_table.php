@@ -16,6 +16,8 @@ class CreateOptionTable extends Migration
             $table->increments('id')->onDelete('cascade');
             $table->string('title');
             $table->string('description');
+            $table->integer('question_id')->unsigned()->default(0);
+            $table->foreign('question_id')->references('id')->on('question')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -29,8 +29,6 @@
         {!! Form::label('question_type', 'Question Type:') !!}
         {{ Form::radio('question_type', 'multi') }} Multiple Choice <a href="#" data-reveal-id="firstModal" class="label">Modal in a modal&hellip;</a><br>
         {{ Form::radio('question_type', 'check') }} Checkboxes <br>
-        {{ Form::radio('question_type', 'text') }} Text Box <br>
-        {{ Form::radio('question_type', 'tof') }} True or False <br>
     </div>
 
 

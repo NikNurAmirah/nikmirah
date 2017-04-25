@@ -31,7 +31,7 @@ class Question extends Model
         return $this->belongsTo('App\Question', 'id');
     }
 
-    public function option()
+    public function options()
     {
         return $this->hasMany('App\Option');
     }
@@ -41,7 +41,7 @@ class Question extends Model
         return $this->hasOne('App\Type', 'question_type');
     }
 
-    public function answer()
+    public function answers()
     {
         return $this->hasMany('App\Answer');
     }
