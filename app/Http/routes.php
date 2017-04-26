@@ -25,6 +25,8 @@ Route::group(['middleware' => 'web'], function () {
     Route::resource('surveys/{id}/add', 'SurveyController@add' );
     Route::resource('surveys/{id}/question-edit', 'QuestionController@edit' );
     Route::resource('surveys/index', 'QuestionController' );
+    Route::resource('surveys/destroy/', 'QuestionController@destroy' );
+
     Route::resource('/surveys', 'SurveyController' );
 
 });

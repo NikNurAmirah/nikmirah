@@ -31,6 +31,11 @@
             <td>{{ $questions->title }}</td>
             <td>{{ $questions->question_type }}</td>
             <td><a href="/surveys/{{ $questions->id }}/question-edit"><span class="label label-success" style="background-color:blue;">Edit</span></a></td>
+            <td>
+                {{ Form::open(array('action' => array('QuestionController@destroy', $questions->id), 'method' => 'DELETE')) }}
+                {{ Form::submit('Delete', ['class' => 'label label-success', 'style' => 'background-colour:red;']) }}
+                {{Form::close()}}
+            </td>
 
         </tr>
         @endforeach
