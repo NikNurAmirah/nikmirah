@@ -17,7 +17,7 @@
     </div>
 
     <div class="row col-sm-12 col-lg-12">
-        {!! Form::label('description', 'Description:') !!}
+        {!! Form::label('description', 'Description (optional):') !!}
         {!! Form::textarea('description', null, ['class' => 'large-8 columns']) !!}
     </div>
 

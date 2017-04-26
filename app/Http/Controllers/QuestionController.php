@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Question;
-use App\Survey;
 use App\User;
 use Auth;
 use Gate;
 use DB;
+use Illuminate\Support\Facades\Input;
 
 class QuestionController extends Controller
 {
@@ -26,7 +26,7 @@ class QuestionController extends Controller
 
     $surveys = DB::table('survey')->where('id', 'survey_id')->get();
 
-    return view('surveys/index', ['question' => $questions], ['users' => $users], ['survey' => $surveys]);
+    return view('surveys', ['question' => $questions], ['users' => $users], ['survey' => $surveys]);
 }
 
     /**
@@ -41,7 +41,7 @@ class QuestionController extends Controller
 
     $surveys = DB::table('survey')->where('id', 'survey_id')->get();
 
-    return view('surveys/index', ['question' => $questions], ['users' => $users], ['survey' => $surveys]);
+    return view('surveys', ['question' => $questions], ['users' => $users], ['survey' => $surveys]);
 
 }
 
@@ -53,10 +53,17 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
 {
+    $this->validate($request, [
+        'title' => 'required',
+        'require' => 'required',
+        'question_type' => 'required',
+    ]);
+
     $input = $request->all();
 
-    Question::create($input);
-    return redirect('surveys/index');
+    $resource = Question::create($input);
+
+    return redirect('/surveys/'. $resource->survey_id);
 
 }
 
@@ -80,6 +87,19 @@ class QuestionController extends Controller
      */
     public function edit($id)
 {
+    $question = Question::where('id',$id)->first();
+
+    if(!$question){
+        return back();
+    }
+    if(Auth::id() !== $question->creator_id){
+        return back();
+    }
+    if(Gate::allows('see_all_users')){
+        return view('/surveys/question-edit')->with('question', $question);
+    }
+    return view('/surveys/question-edit')->with('question', $question);
+
 
 
 }
@@ -94,6 +114,20 @@ class QuestionController extends Controller
     public function update(Request $request, $id)
 {
 
+    $this->validate($request, [
+        'title' => 'required',
+        'require' => 'required',
+        'question_type' => 'required',
+    ]);
+
+    $question = Question::findOrFail($id);
+
+    $question->title = Input::get('title');
+    $question->require = Input::get('require');
+    $question->question_type = Input::get('question_type');
+    $question->save();
+
+    return redirect('/surveys/'. $question->survey_id);
 }
 
     /**

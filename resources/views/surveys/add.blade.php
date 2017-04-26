@@ -12,11 +12,12 @@
 
     <div class="row col-sm-12 col-lg-12">
         {!! Form::hidden('survey_id', $survey->id, ['class' => 'large-8 columns']) !!}
+        {!! Form::hidden('creator_id', Auth::user()->id) !!}
     </div>
 
     <div class="row col-sm-12 col-lg-12">
         {!! Form::label('title', 'Question:') !!}
-        {!! Form::text('title', null, ['class' => 'large-8 columns']) !!}
+        {!! Form::text('title', null, ['class' => 'large-8 columns'], ['required']) !!}
     </div>
 
     <div class="row col-sm-12 col-lg-12">

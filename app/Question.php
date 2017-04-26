@@ -9,7 +9,9 @@ class Question extends Model
     protected $table = 'question';
 
     protected $fillable = [
+        'id',
         'title',
+        'creator_id',
         'pre_question_id',
         'survey_id',
         'option_id',
@@ -20,6 +22,10 @@ class Question extends Model
     public function survey()
     {
         return $this->belongsTo('App\Survey', 'survey_id');
+    }
+    public function user()
+    {
+        return $this->belongsTo('App\User', 'creator_id');
     }
     public function sub_questions()
     {

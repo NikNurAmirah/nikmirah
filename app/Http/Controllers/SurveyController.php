@@ -58,6 +58,13 @@ class SurveyController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'title' => 'required',
+            'active' => 'required',
+            'anonymous' => 'required',
+        ]);
+
+
         $input = $request->all();
 
         $survey = Survey::create($input);
@@ -80,7 +87,7 @@ class SurveyController extends Controller
         // if article does not exist return to list
         if(!$survey)
         {
-            return redirect('/surveys'); // you could add on here the flash messaging of article does not exist.
+            return redirect('/surveys')->with('message'); // you could add on here the flash messaging of article does not exist.
         }
 
             return view('/surveys/show')->withSurvey($survey)->withQuestion($question);
@@ -98,10 +105,10 @@ class SurveyController extends Controller
         $survey = Survey::where('id',$id)->first();
 
         if(!$survey){
-            return redirect('/surveys/index');
+            return back();
         }
         if(Auth::id() !== $survey->creator_id){
-            return view('/surveys/index');
+            return back();
         }
         if(Gate::allows('see_all_users')){
             return view('/surveys/edit')->with('survey', $survey);
@@ -119,6 +126,12 @@ class SurveyController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            'title' => 'required',
+            'active' => 'required',
+            'anonymous' => 'required',
+        ]);
+
         $survey = Survey::findOrFail($id);
 
         $survey->title = Input::get('title');
@@ -148,15 +161,16 @@ class SurveyController extends Controller
         $survey = Survey::where('id',$id)->first();
 
         if(!$survey){
-            return redirect('/surveys/index');
+            return back();
         }
         if(Auth::id() !== $survey->creator_id){
-            return view('/surveys/index');
+            return back();
         }
         if(Gate::allows('see_all_users')){
             return view('/surveys/add')->with('survey', $survey);
         }
         return view('/surveys/add')->with('survey', $survey);
     }
+
 
 }

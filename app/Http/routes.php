@@ -21,10 +21,11 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('/home', 'HomeController@index');
     Route::resource('/admin/users', 'UserController' );
-    Route::resource('/surveys', 'SurveyController' );
     Route::resource('/admin/surveys', 'AdminSurveyController' );
-    Route::resource('surveys/index', 'QuestionController' );
     Route::resource('surveys/{id}/add', 'SurveyController@add' );
+    Route::resource('surveys/{id}/question-edit', 'QuestionController@edit' );
+    Route::resource('surveys/index', 'QuestionController' );
+    Route::resource('/surveys', 'SurveyController' );
 
 });
 
