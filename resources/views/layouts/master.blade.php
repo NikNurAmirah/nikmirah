@@ -11,6 +11,8 @@
 
 @include('includes.navbar')
 
+@yield('banner')
+
 <div class="row">
 @yield('content')
 </div>

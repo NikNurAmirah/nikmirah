@@ -87,7 +87,7 @@ class SurveyController extends Controller
         // if article does not exist return to list
         if(!$survey)
         {
-            return redirect('/surveys')->with('message'); // you could add on here the flash messaging of article does not exist.
+            return redirect('/surveys');
         }
 
             return view('/surveys/show')->withSurvey($survey)->withQuestion($question);
@@ -154,7 +154,7 @@ class SurveyController extends Controller
         $survey = Survey::find($id);
         $survey->delete();
 
-        return redirect('/surveys');
+        return back();
     }
     public function add($id)
     {

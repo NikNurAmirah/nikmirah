@@ -9,7 +9,7 @@
 
             function addAnotherTextBox() {
                 $("#theForm").append("<br><label>Option:</label>" +
-                    "<input type='text' name='teilnehmer_" + i + "' >");
+                    "<input type='text' name='option" + i + "' >");
             }
 
 
