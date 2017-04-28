@@ -19,7 +19,9 @@ class CreateAnswerTable extends Migration
             $table->longText('atext');
             $table->string('answered_by');
             $table->integer('question_id')->unsigned();
+            $table->integer('survey_id')->unsigned();
             $table->foreign('question_id')->references('id')->on('question')->onDelete('cascade');
+            $table->foreign('survey_id')->references('id')->on('survey')->onDelete('cascade');
 
             $table->timestamps();
         });

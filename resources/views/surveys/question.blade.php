@@ -7,6 +7,7 @@
     <h2>{{$question->title}}:</h2>
     {!! Form::open(array('action' => 'AnswerController@store', 'id' => 'createanswer')) !!}
     {!! Form::hidden('question_id', $question->id) !!}
+    {!! Form::hidden('survey_id', $question->survey_id) !!}
     {!! Form::hidden('answered_by', Auth::user()->id) !!}
     {{ Form::hidden(csrf_token()) }}
         @if($question->question_type == 'text')

@@ -179,6 +179,7 @@ class SurveyController extends Controller
         $survey = Survey::where('id',$id)->first();
         $question = Question::where('survey_id', $id)->with('answers')->get();
 
+
         if(!$survey)
         {
             return redirect('/surveys');

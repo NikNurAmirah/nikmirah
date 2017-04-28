@@ -11,6 +11,7 @@ class Answer extends Model
         'title',
         'atext',
         'question_id',
+        'survey_id',
         'answered_by',
     ];
 

@@ -16,7 +16,7 @@
             <tr>
                 <td>{{ $questions->title }}</td>
                 @if($questions->answered_by == Auth::user()->id)
-                    <span class="label label-success">Already Answered!</span>
+                    <td><span class="label label-success">Already Answered!</span></td>
                 @else
                 <td><a href="/surveys/{{ $questions->id }}/question"><span class="label label-success" style="background-color:blue;">Answer</span></a></td>
             </tr>
