@@ -18,7 +18,7 @@
             @endforeach
         @elseif($question->question_type == 'check')
             @foreach($question->options as $options)
-                {{ Form::checkbox('atext', $options->title) }} {{$options->title}}<br>
+                {{ Form::checkbox('atext[]', $options->title) }} {{$options->title}}<br>
             @endforeach
         @endif
     {!! Form::submit('Done', ['class' => 'button', 'style' => "background-color:greenyellow; color:black"]) !!}
