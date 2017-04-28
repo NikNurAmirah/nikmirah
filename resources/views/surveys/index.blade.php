@@ -5,8 +5,12 @@
 @section('content')
     <h1>My Surveys</h1>
 
+
     <section>
-        @if (isset ($mysurveys))
+        @if (count($mysurveys) < 1)
+            <p>No Surveys found...</p>
+        @else
+
 
             <table class="small-12 large-12">
                 <tr>
@@ -46,14 +50,11 @@
                     </tr>
                 @endforeach
             </table>
-        @else
-            <p> no surveys added yet </p>
-        @endif
     </section>
-
+    @endif
     {{ Form::open(array('action' => 'SurveyController@create', 'method' => 'get')) }}
     <div class="row">
-        {!! Form::submit('Add Survey', ['class' => 'button']) !!}
+        {!! Form::submit('Add Survey', ['class' => 'button', 'style' => 'background-color: greenyellow; color: black']) !!}
     </div>
     {{ Form::close() }}
 

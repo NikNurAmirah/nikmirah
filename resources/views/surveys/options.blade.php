@@ -5,7 +5,7 @@
 @section('content')
     @if($question->question_type == 'text')
         <script type="text/javascript">
-            window.location = "{{ url('/surveys') }}";//here double curly bracket
+            window.location = "{{ url('/surveys/' . $question->survey_id) }}";//here double curly bracket
         </script>
     @else
 

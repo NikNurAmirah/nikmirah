@@ -37,18 +37,31 @@
     </div>
     {!! Form::close() !!}
 
+    @if(count($option) < 1)
+        <br />
+        <br />
+        <br />
+            <p>No options added!</p>
+            <a class='button' style="background-color: greenyellow; color: black;" href="/surveys/{{ $question->id }}/options">Add Options*</a>
+            <p>*Options cannot be added to TextBox type questions!</p>
+    @else
     <div class="row">
-    <table class="small-12 large-12">
+    <table  class="row col-sm-12 col-lg-12">
         <tr>
             <th>Question Options</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
         @foreach($option as $options)
             <tr>
                 <td>{{ $options->title }}</td>
+                <td><a href="/surveys/{{ $options->id }}/options-edit"><span class="label label-success" style="background-color:blue;">Edit</span></a></td>
             </tr>
         @endforeach
     </table>
-    </div>
+        <a class='button' href="/surveys/{{ $question->id }}/options">Add Options</a>
+
+    @endif
 
 
 @endsection

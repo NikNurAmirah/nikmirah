@@ -12,7 +12,7 @@
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
                 <br>
-                <a class="button" style="float:right;" href="/surveys/create">Create Surveys</a>
+                <a class="button" style="float:right; background-color: greenyellow; color: black;" href="/surveys/create">Create Surveys</a>
                 <h2 class="panel-body">
                     <a href="/surveys/create">Create a Survey Now!</a>
                 </h2>

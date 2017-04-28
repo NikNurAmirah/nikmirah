@@ -19,6 +19,11 @@
         <a href="/surveys/{{ $survey->id }}/add"><span class="button" style="background-color:greenyellow; color:black;">Add Question</span></a>
     @endif
 
+    @if(count($question) < 1)
+
+        No Questions added yet!
+
+        @else
     <table class="small-12 large-12">
         <tr>
             <th>Question</th>
@@ -40,6 +45,7 @@
         </tr>
         @endforeach
     </table>
+    @endif
 
 
 
