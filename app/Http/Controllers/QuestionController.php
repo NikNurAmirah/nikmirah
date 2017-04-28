@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Option;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -63,8 +64,8 @@ class QuestionController extends Controller
 
     $resource = Question::create($input);
 
-    return redirect('/surveys/'. $resource->survey_id);
-
+//    return redirect('/surveys/'. $resource->survey_id);
+    return redirect('/surveys/'. $resource->id . '/options');
 }
 
     /**
@@ -88,6 +89,7 @@ class QuestionController extends Controller
     public function edit($id)
 {
     $question = Question::where('id',$id)->first();
+    $option = Option::where('question_id', $id)->get();
 
     if(!$question){
         return back();
@@ -96,9 +98,9 @@ class QuestionController extends Controller
         return back();
     }
     if(Gate::allows('see_all_users')){
-        return view('/surveys/question-edit')->with('question', $question);
+        return view('/surveys/question-edit')->with('question', $question)->with('option', $option);
     }
-    return view('/surveys/question-edit')->with('question', $question);
+    return view('/surveys/question-edit')->with('question', $question)->with('option', $option);
 
 
 

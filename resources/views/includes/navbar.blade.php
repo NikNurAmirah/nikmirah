@@ -12,7 +12,7 @@
         <!-- Left Nav Section -->
         <ul class="left">
             <li><a href="/">Home</a></li>
-            <li class="has-dropdown active">
+            <li class="active">
                 <a href="/surveys">My Surveys</a>
             </li>
         </ul>

@@ -17,7 +17,7 @@
 
     <div class="row col-sm-12 col-lg-12">
         {!! Form::label('title', 'Question:') !!}
-        {!! Form::text('title', null, ['class' => 'large-8 columns'], ['required']) !!}
+        {!! Form::text('title', null, ['class' => 'large-8 columns']) !!}
     </div>
 
     <div class="row col-sm-12 col-lg-12">
@@ -28,7 +28,8 @@
 
     <div class="row col-sm-12 col-lg-12">
         {!! Form::label('question_type', 'Question Type:') !!}
-        {{ Form::radio('question_type', 'multi') }} Multiple Choice <a href="#" data-reveal-id="firstModal" class="label">Modal in a modal&hellip;</a><br>
+        {{ Form::radio('question_type', 'text') }} TextBox<br>
+        {{ Form::radio('question_type', 'multi') }} Multiple Choice<br>
         {{ Form::radio('question_type', 'check') }} Checkboxes <br>
     </div>
 
@@ -39,9 +40,6 @@
         {!! Form::submit('Add Question', ['class' => 'button']) !!}
     </div>
     {!! Form::close() !!}
-    <div id="firstModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
-        @include('includes.questiontypes.radio')
-        <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-    </div>
+
 
 @endsection

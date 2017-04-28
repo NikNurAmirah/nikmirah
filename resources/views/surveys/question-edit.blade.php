@@ -24,6 +24,7 @@
 
     <div class="row col-sm-12 col-lg-12">
         {!! Form::label('question_type', 'Question Type:') !!}
+        {{ Form::radio('question_type', 'text') }} TextBox<br>
         {{ Form::radio('question_type', 'multi') }} Multiple Choice<br>
         {{ Form::radio('question_type', 'check') }} Checkboxes <br>
     </div>
@@ -31,10 +32,23 @@
 
     <br>
 
-    <div class="row large-4 columns">
+    <div class="row large-12 columns">
         {!! Form::submit('Update Question', ['class' => 'button']) !!}
     </div>
     {!! Form::close() !!}
+
+    <div class="row">
+    <table class="small-12 large-12">
+        <tr>
+            <th>Question Options</th>
+        </tr>
+        @foreach($option as $options)
+            <tr>
+                <td>{{ $options->title }}</td>
+            </tr>
+        @endforeach
+    </table>
+    </div>
 
 
 @endsection
