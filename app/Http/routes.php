@@ -26,9 +26,12 @@ Route::group(['middleware' => 'web'], function () {
     Route::resource('surveys/{id}/question-edit', 'QuestionController@edit' );
     Route::resource('surveys/index', 'QuestionController' );
     Route::resource('surveys/index2', 'OptionController' );
+    Route::resource('surveys/index3', 'AnswerController' );
     Route::resource('surveys/destroy/', 'QuestionController@destroy' );
     Route::resource('surveys/{id}/options/', 'OptionController@add' );
+    Route::resource('surveys/{id}/question/', 'QuestionController@show' );
     Route::resource('surveys/{id}/options-edit/', 'OptionController@edit' );
+    Route::resource('surveys/{id}/take/', 'SurveyController@take' );
 
     Route::resource('/surveys', 'SurveyController' );
 

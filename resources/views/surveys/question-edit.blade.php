@@ -45,8 +45,11 @@
             <a class='button' style="background-color: greenyellow; color: black;" href="/surveys/{{ $question->id }}/options">Add Options*</a>
             <p>*Options cannot be added to TextBox type questions!</p>
     @else
+        <br />
+        <br />
+        <br />
     <div class="row">
-    <table  class="row col-sm-12 col-lg-12">
+    <table  class="small-12 large-12">
         <tr>
             <th>Question Options</th>
             <th>Edit</th>
@@ -56,10 +59,16 @@
             <tr>
                 <td>{{ $options->title }}</td>
                 <td><a href="/surveys/{{ $options->id }}/options-edit"><span class="label label-success" style="background-color:blue;">Edit</span></a></td>
+                <td>
+                    {{ Form::open(array('action' => array('OptionController@destroy', $options->id), 'method' => 'DELETE')) }}
+                    {{ Form::submit('Delete', ['class' => 'label label-success', 'style' => 'background-colour:red;']) }}
+                    {{Form::close()}}
+                </td>
             </tr>
         @endforeach
     </table>
-        <a class='button' href="/surveys/{{ $question->id }}/options">Add Options</a>
+        <br/>
+        <a style="background-color: greenyellow; color:black;" class='button' href="/surveys/{{ $question->id }}/options">Add Options</a>
 
     @endif
 

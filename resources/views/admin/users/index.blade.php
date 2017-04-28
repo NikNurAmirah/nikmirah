@@ -26,7 +26,7 @@
                                 @endforeach
                             </ul>
                         </td>
-                        <td><a href="/admin/users/{{ $user->id }}/edit">Edit</a></td>
+                        <td><a href="/admin/users/{{ $user->id }}/edit"><span class="label label-success" style="background-color:blue;">Edit</span></a></td>
                     </tr>
                 @endforeach
             </table>

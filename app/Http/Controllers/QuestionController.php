@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Question;
 use App\User;
+use App\Survey;
 use Auth;
 use Gate;
 use DB;
@@ -77,6 +78,12 @@ class QuestionController extends Controller
     public function show($id)
 {
 
+    $quest = Question::all();
+
+    $question = Question::where('id', $id)->first();
+    $option = Option::where('question_id',$id)->get();
+
+    return view('surveys/question',['option' => $option] , ['question' => $question]);
 
 }
 

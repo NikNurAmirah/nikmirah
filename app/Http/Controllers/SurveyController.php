@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Survey;
 use App\User;
 use App\Question;
+use App\Option;
 use Auth;
 use Gate;
 use DB;
@@ -81,16 +82,18 @@ class SurveyController extends Controller
      */
     public function show($id)
     {
-        $survey = Survey::where('id',$id)->first();
-        $question = Question::where('survey_id', $id)->get();
 
+        $quest = Question::all();
+
+        $survey = Survey::where('id',$id)->first();
+        $question = Question::where('survey_id', $id)->with('options')->get();
         // if article does not exist return to list
         if(!$survey)
         {
             return redirect('/surveys');
         }
 
-            return view('/surveys/show')->withSurvey($survey)->withQuestion($question);
+            return view('/surveys/show', ['survey' => $survey] , ['question' => $question]);
 
     }
 
@@ -170,6 +173,19 @@ class SurveyController extends Controller
             return view('/surveys/add')->with('survey', $survey);
         }
         return view('/surveys/add')->with('survey', $survey);
+    }
+    public function take($id)
+    {
+        $survey = Survey::where('id',$id)->first();
+        $question = Question::where('survey_id', $id)->with('answers')->get();
+
+        if(!$survey)
+        {
+            return redirect('/surveys');
+        }
+
+        return view('/surveys/take', ['survey' => $survey] , ['question' => $question]);
+
     }
 
 

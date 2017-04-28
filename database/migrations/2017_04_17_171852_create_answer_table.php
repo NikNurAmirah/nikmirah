@@ -17,8 +17,10 @@ class CreateAnswerTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->longText('atext');
+            $table->string('answered_by');
             $table->integer('question_id')->unsigned();
             $table->foreign('question_id')->references('id')->on('question')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

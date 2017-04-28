@@ -76,4 +76,11 @@ class OptionController extends Controller
 
         return redirect('/surveys/' . $option->question_id . '/question-edit');
     }
+    public function destroy($id)
+    {
+        $option = Option::findOrFail($id);
+        $option->delete();
+
+        return back();
+    }
 }

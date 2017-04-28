@@ -20,7 +20,7 @@
         {!! Form::text('title', null, ['class' => 'large-8 columns']) !!}
     </div>
     <div class="row large-4 columns">
-        {!! Form::submit('Add Option', ['class' => 'button']) !!}
+        {!! Form::submit('Add Option', ['class' => 'button'], ['style' => "background-color:greenyellow; color:black"]) !!}
     </div>
     {{ Form::close() }} 
     <div class="row col-sm-12 col-lg-12">

@@ -1,5 +1,7 @@
 @extends('layouts.master')
 
+@section('title', 'Welcome!')
+
 @section('banner')
 <a href="/"><h1 class="col-lg-12 custom-banner">Survey System</h1></a>
 <div style="width: 100%; height: 4px; margin: 0; background-color:#333333;"></div>
