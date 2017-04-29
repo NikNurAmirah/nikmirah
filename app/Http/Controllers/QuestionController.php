@@ -80,11 +80,14 @@ class QuestionController extends Controller
 
     $quest = Question::all();
 
-    $question = Question::where('id', $id)->first();
+    $question = Question::where('id', $id)->with('survey')->first();
     $option = Option::where('question_id',$id)->get();
 
-    return view('surveys/question',['option' => $option] , ['question' => $question]);
-
+    if(!$question){
+        return back();
+    } else {
+        return view('surveys/question', ['option' => $option], ['question' => $question]);
+    }
 }
 
     /**

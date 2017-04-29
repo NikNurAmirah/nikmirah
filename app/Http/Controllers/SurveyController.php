@@ -182,7 +182,7 @@ class SurveyController extends Controller
 
         if(!$survey)
         {
-            return redirect('/surveys');
+            return back();
         }
 
         return view('/surveys/take', ['survey' => $survey] , ['question' => $question]);

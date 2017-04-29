@@ -13,17 +13,9 @@ class AnswerController extends Controller
     public function store(Request $request)
     {
 
-        ///
+        $input = $request->all();
 
-
-        $atext = implode(", ", $request->get('atext'));
-
-        $resource = Answer::create([
-            'atext' => $atext,
-            'answered_by' => $request->get('answered_by'),
-            'survey_id' => $request->get('survey_id'),
-            'question_id' => $request->get('question_id'),
-        ]);
+        $resource = Answer::create($input);
 
 
 

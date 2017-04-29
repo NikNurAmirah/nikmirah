@@ -4,9 +4,12 @@
 
 @section('content')
 
+    @if($survey->active == 1)
 
 
+    @if(count($question) >= 1)
     <br/>
+    <p>Go through each question by clicking 'answer'. Once done click finish below all of the questions.</p>
     <table class="small-12 large-12">
         <tr>
             <th>Question</th>
@@ -26,5 +29,19 @@
 
 
     <a href="/surveys/{{ $survey->id }}"><span class="button" style="background-color:greenyellow; color:black;">Finish</span></a><br/>
+    @else
+        <br/>
+
+        No Questions added to this survey.
+        <br/>
+        <br/>
+        <a href="/surveys/{{ $survey->id }}"><span class="button" style="background-color:greenyellow; color:black;">Go Back</span></a><br/>
+
+    @endif
+
+    @else
+        <br/>
+        This Survey is not available at this time.
+    @endif
 
     @endsection
