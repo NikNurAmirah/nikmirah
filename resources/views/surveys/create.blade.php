@@ -6,6 +6,7 @@
 
 <h1>Add Survey</h1>
 
+
 {!! Form::open(array('action' => 'SurveyController@store', 'id' => 'createsurvey')) !!}
 {{ Form::hidden(csrf_token()) }}
 
@@ -39,5 +40,6 @@
     {!! Form::submit('Add Survey', ['class' => 'button']) !!}
 </div>
 {!! Form::close() !!}
+
 
 @endsection
