@@ -15,6 +15,7 @@
             <li class="active">
                 <a href="/surveys">My Surveys</a>
             </li>
+            <li><a href="/responses">Responses</a></li>
         </ul>
     </section>
     <section class="top-bar-section">

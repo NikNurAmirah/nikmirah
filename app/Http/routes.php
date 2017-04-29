@@ -25,6 +25,8 @@ Route::group(['middleware' => 'web'], function () {
     Route::resource('surveys/{id}/add', 'SurveyController@add' );
     Route::resource('surveys/{id}/question-edit', 'QuestionController@edit' );
     Route::resource('surveys/index', 'QuestionController' );
+    Route::resource('/responses', 'ResponseController' );
+    Route::resource('responses/{id}/show', 'ResponseController@show' );
     Route::resource('surveys/index2', 'OptionController' );
     Route::resource('surveys/index3', 'AnswerController' );
     Route::resource('surveys/index4', 'AnswerCheckController' );

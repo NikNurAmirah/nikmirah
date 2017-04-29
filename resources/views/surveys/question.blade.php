@@ -13,7 +13,7 @@
             {!! Form::open(array('action' => 'AnswerController@store', 'id' => 'createanswer')) !!}
             {!! Form::hidden('question_id', $question->id) !!}
             @if($question->survey->anonymous == 1)
-                {!! Form::hidden('answered_by', Auth::user()->id) !!}
+                {!! Form::hidden('answered_by', Auth::user()->email) !!}
             @endif
             {!! Form::hidden('survey_id', $question->survey_id) !!}
             {{ Form::hidden(csrf_token()) }}
@@ -22,7 +22,7 @@
             {!! Form::open(array('action' => 'AnswerController@store', 'id' => 'createanswer')) !!}
             {!! Form::hidden('question_id', $question->id) !!}
             @if($question->survey->anonymous == 1)
-                {!! Form::hidden('answered_by', Auth::user()->id) !!}
+                {!! Form::hidden('answered_by', Auth::user()->email) !!}
             @endif
             {!! Form::hidden('survey_id', $question->survey_id) !!}
             {{ Form::hidden(csrf_token()) }}
@@ -33,7 +33,7 @@
             {!! Form::open(array('action' => 'AnswerCheckController@store', 'id' => 'createanswer')) !!}
             {!! Form::hidden('question_id', $question->id) !!}
             @if($question->survey->anonymous == 1)
-                {!! Form::hidden('answered_by', Auth::user()->id) !!}
+                {!! Form::hidden('answered_by', Auth::user()->email) !!}
             @endif
             {!! Form::hidden('survey_id', $question->survey_id) !!}
             {{ Form::hidden(csrf_token()) }}
