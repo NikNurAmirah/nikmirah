@@ -23,6 +23,7 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+        //Handles the taking the user to the home page
     {
         return view('home');
     }
