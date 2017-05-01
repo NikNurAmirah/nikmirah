@@ -6,9 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 class CreateTypeTable extends Migration
 {
     /**
-     * Run the migrations.
-     *
-     * @return void
+     * THIS TABLE WAS NEVER USED
      */
     public function up()
     {

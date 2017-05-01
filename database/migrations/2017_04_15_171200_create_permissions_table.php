@@ -13,9 +13,9 @@ class CreatePermissionsTable extends Migration
     public function up()
     {
         Schema::create('permissions', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name')->unique();
-            $table->string('label')->nullable();
+            $table->increments('id'); //Auto increment ID
+            $table->string('name')->unique(); //Unique field with name 'name'
+            $table->string('label')->nullable(); //nullable field with name 'label' - nullable means it can be empty
             $table->timestamps();
         });
     }

@@ -14,14 +14,14 @@ class CreateAnswerTable extends Migration
     public function up()
     {
         Schema::create('answer', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('title');
-            $table->longText('atext');
-            $table->string('answered_by');
-            $table->integer('question_id')->unsigned();
-            $table->integer('survey_id')->unsigned();
-            $table->foreign('question_id')->references('id')->on('question')->onDelete('cascade');
-            $table->foreign('survey_id')->references('id')->on('survey')->onDelete('cascade');
+            $table->increments('id'); //id is defines
+            $table->string('title'); //title is defined in a string
+            $table->longText('atext'); //atext is the text that the survey stores from the users input
+            $table->string('answered_by'); //who submitted the answer?
+            $table->integer('question_id')->unsigned(); //integer defined question_id
+            $table->integer('survey_id')->unsigned(); //integer defined survey_id
+            $table->foreign('question_id')->references('id')->on('question')->onDelete('cascade'); //this indicates where the foreign key question_id is coming from
+            $table->foreign('survey_id')->references('id')->on('survey')->onDelete('cascade'); //this indicates where the foreign key survey_id is coming from
 
             $table->timestamps();
         });

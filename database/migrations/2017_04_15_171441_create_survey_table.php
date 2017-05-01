@@ -11,16 +11,17 @@ class CreateSurveyTable extends Migration
      * @return void
      */
     public function up()
+        //new table created
     {
         Schema::create('survey', function (Blueprint $table) {
-           $table->increments('id')->onDelete('cascade');
-           $table->integer('creator_id')->unsigned()->default(0);
-           $table->foreign('creator_id')->references('id')->on('users')->onDelete('cascade');
-           $table->string('slug')->nullable()->unique();
-           $table->longText('title')->nullable();
-           $table->longText('description')->nullable();
-           $table->boolean('active')->default(false);
-           $table->boolean('anonymous')->default(false);
+           $table->increments('id')->onDelete('cascade'); //inidicates ID with cascade, meaning when deleted it will delete every sub category (e.g. questions that belong to the survey)
+           $table->integer('creator_id')->unsigned()->default(0); //integer defined creator_id
+           $table->foreign('creator_id')->references('id')->on('users')->onDelete('cascade'); //this indicates where the foreign key creator_id is coming from
+           $table->string('slug')->nullable()->unique(); //not used
+           $table->longText('title')->nullable(); //this indicates the title, with the longtext attribute
+           $table->longText('description')->nullable();  //this indicates the description, with the longtext attribute
+           $table->boolean('active')->default(false); //this is a boolean (1 or 0)with the default value 'false' or 0
+           $table->boolean('anonymous')->default(false); //this is a boolean (1 or 0)with the default value 'false' or 0
            $table->timestamps();
            $table->timestamp('published_at')->index();
         });

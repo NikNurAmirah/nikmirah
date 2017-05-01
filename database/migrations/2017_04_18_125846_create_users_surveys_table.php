@@ -6,9 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 class CreateUsersSurveysTable extends Migration
 {
     /**
-     * Run the migrations.
-     *
-     * @return void
+     * THIS PIVOT TABLE IS NOT USED
      */
     public function up()
     {
