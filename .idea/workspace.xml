@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e328d3cb-56b4-48ff-a99d-81d5045e9ce7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ResponseController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ResponseController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/SurveyController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/SurveyController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2017_04_15_171134_create_roles_table.php" afterPath="$PROJECT_DIR$/database/migrations/2017_04_15_171134_create_roles_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2017_04_15_171200_create_permissions_table.php" afterPath="$PROJECT_DIR$/database/migrations/2017_04_15_171200_create_permissions_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2017_04_15_171230_create_permission_role_table.php" afterPath="$PROJECT_DIR$/database/migrations/2017_04_15_171230_create_permission_role_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2017_04_15_171359_create_role_user_table.php" afterPath="$PROJECT_DIR$/database/migrations/2017_04_15_171359_create_role_user_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2017_04_15_171441_create_survey_table.php" afterPath="$PROJECT_DIR$/database/migrations/2017_04_15_171441_create_survey_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2017_04_17_171628_create_type_table.php" afterPath="$PROJECT_DIR$/database/migrations/2017_04_17_171628_create_type_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2017_04_17_171801_create_question_table.php" afterPath="$PROJECT_DIR$/database/migrations/2017_04_17_171801_create_question_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2017_04_17_171852_create_answer_table.php" afterPath="$PROJECT_DIR$/database/migrations/2017_04_17_171852_create_answer_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2017_04_17_175327_create_option_table.php" afterPath="$PROJECT_DIR$/database/migrations/2017_04_17_175327_create_option_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2017_04_18_125846_create_users_surveys_table.php" afterPath="$PROJECT_DIR$/database/migrations/2017_04_18_125846_create_users_surveys_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/seeds/UserTableSeeder.php" afterPath="$PROJECT_DIR$/database/seeds/UserTableSeeder.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -51,11 +38,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2017_04_18_125846_create_users_surveys_table.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="2017_04_18_125846_create_users_surveys_table.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/migrations/2017_04_18_125846_create_users_surveys_table.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
               <caret line="8" column="35" lean-forward="false" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserTableSeeder.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/database/seeds/UserTableSeeder.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="14" lean-forward="true" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -90,7 +87,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/auth/register.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/master.blade.php" />
         <option value="$PROJECT_DIR$/public/css/app.css" />
         <option value="$PROJECT_DIR$/resources/views/surveys/index.blade.php" />
@@ -141,6 +137,7 @@
         <option value="$PROJECT_DIR$/database/migrations/2017_04_17_171852_create_answer_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2017_04_17_175327_create_option_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2017_04_18_125846_create_users_surveys_table.php" />
+        <option value="$PROJECT_DIR$/database/seeds/UserTableSeeder.php" />
       </list>
     </option>
   </component>
@@ -569,12 +566,12 @@
       <workItem from="1493514326794" duration="159000" />
       <workItem from="1493571782111" duration="1102000" />
       <workItem from="1493640469517" duration="5572000" />
-      <workItem from="1493656802503" duration="984000" />
+      <workItem from="1493656802503" duration="1029000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="146347000" />
+    <option name="totallyTimeSpent" value="146392000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -644,13 +641,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="100" column="39" lean-forward="true" selection-start-line="100" selection-start-column="39" selection-end-line="100" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/users/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -1009,6 +999,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="8" column="35" lean-forward="false" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/UserTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="14" lean-forward="true" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
           <folding />
         </state>
       </provider>
