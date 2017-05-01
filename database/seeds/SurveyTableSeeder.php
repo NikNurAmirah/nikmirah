@@ -12,7 +12,7 @@ class SurveyTableSeeder extends Seeder
     public function run()
     {
         DB::table('survey')->insert([
-            ['id' => 1, 'creator_id' => "51", 'slug' => "1", 'title' => "Survey 1 Test", 'description' => "This is the 1st test", 'active' => "0", 'anonymous' => "0"],
+            ['id' => 1, 'creator_id' => "51", 'slug' => "1", 'title' => "Feeling Survey", 'description' => "This is to see how the user is feeling", 'active' => "1", 'anonymous' => "1"],
         ]);
     }
 }

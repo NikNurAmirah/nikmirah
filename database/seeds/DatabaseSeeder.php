@@ -34,6 +34,9 @@ class DatabaseSeeder extends Seeder
         $this->call(RoleUserTableSeeder::class);
         $this->call(PermissionRoleTableSeeder::class);
         $this->call(SurveyTableSeeder::class);
+        $this->call(QuestionTableSeeder::class);
+        $this->call(OptionTableSeeder::class);
+        $this->call(AnswerTableSeeder::class);
 
     }
 }

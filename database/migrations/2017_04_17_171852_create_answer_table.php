@@ -17,7 +17,7 @@ class CreateAnswerTable extends Migration
             $table->increments('id'); //id is defines
             $table->string('title'); //title is defined in a string
             $table->longText('atext'); //atext is the text that the survey stores from the users input
-            $table->string('answered_by'); //who submitted the answer?
+            $table->string('answered_by')->nullable(); //who submitted the answer?
             $table->integer('question_id')->unsigned(); //integer defined question_id
             $table->integer('survey_id')->unsigned(); //integer defined survey_id
             $table->foreign('question_id')->references('id')->on('question')->onDelete('cascade'); //this indicates where the foreign key question_id is coming from
