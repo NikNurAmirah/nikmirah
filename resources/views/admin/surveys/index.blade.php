@@ -56,7 +56,7 @@
 
     {{ Form::open(array('action' => 'AdminSurveyController@create', 'method' => 'get')) }}
     <div class="row">
-        {!! Form::submit('Add Survey', ['class' => 'button']) !!}
+        {!! Form::submit('Add Survey', ['class' => 'button', 'style' => 'background-color: greenyellow; color: black']) !!}
     </div>
     {{ Form::close() }}
         </div>

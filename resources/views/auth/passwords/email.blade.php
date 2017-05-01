@@ -1,12 +1,14 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 <!-- Main Content -->
 @section('content')
+    <br/>
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
+                <h3 class="panel-heading">Reset Password</h3>
+                <br/>
                 <div class="panel-body">
                     @if (session('status'))
                         <div class="alert alert-success">

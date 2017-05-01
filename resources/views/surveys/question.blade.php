@@ -12,7 +12,7 @@
         @if($question->question_type == 'text')
             {!! Form::open(array('action' => 'AnswerController@store', 'id' => 'createanswer')) !!}
             {!! Form::hidden('question_id', $question->id) !!}
-            @if($question->survey->anonymous == 1)
+            @if($question->survey->anonymous == 0)
                 {!! Form::hidden('answered_by', Auth::user()->email) !!}
             @endif
             {!! Form::hidden('survey_id', $question->survey_id) !!}
@@ -21,7 +21,7 @@
         @elseif($question->question_type == 'multi')
             {!! Form::open(array('action' => 'AnswerController@store', 'id' => 'createanswer')) !!}
             {!! Form::hidden('question_id', $question->id) !!}
-            @if($question->survey->anonymous == 1)
+            @if($question->survey->anonymous == 0)
                 {!! Form::hidden('answered_by', Auth::user()->email) !!}
             @endif
             {!! Form::hidden('survey_id', $question->survey_id) !!}
@@ -32,7 +32,7 @@
         @elseif($question->question_type == 'check')
             {!! Form::open(array('action' => 'AnswerCheckController@store', 'id' => 'createanswer')) !!}
             {!! Form::hidden('question_id', $question->id) !!}
-            @if($question->survey->anonymous == 1)
+            @if($question->survey->anonymous == 0)
                 {!! Form::hidden('answered_by', Auth::user()->email) !!}
             @endif
             {!! Form::hidden('survey_id', $question->survey_id) !!}

@@ -3,7 +3,7 @@
 @section('title', 'My Responses - Index')
 
 @section('content')
-    <h1>My Surveys</h1>
+    <h1>My Responses</h1>
 
 
     <section>

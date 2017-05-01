@@ -4,7 +4,7 @@
 
 @section('content')
 
-        <h2>Add options to - {{ $option->title }}</h2>
+        <h2>Edit option - {{ $option->title }}</h2>
 
         {{ Form::model($option, array('action' => array('OptionController@update', $option->id), 'method' => 'PATCH')) }}
         {{ Form::hidden(csrf_token()) }}
