@@ -9,6 +9,8 @@ class SurveyTableSeeder extends Seeder
      *
      * @return void
      */
+
+    //Create a new survey
     public function run()
     {
         DB::table('survey')->insert([

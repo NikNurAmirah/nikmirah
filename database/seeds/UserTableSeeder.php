@@ -9,6 +9,8 @@ class UserTableSeeder extends Seeder
      *
      * @return void
      */
+
+    //Add in an admin user and a Non admin user.
     public function run()
     {
         DB::table('users')->insert([

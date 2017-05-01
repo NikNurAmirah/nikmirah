@@ -9,6 +9,8 @@ class QuestionTableSeeder extends Seeder
      *
      * @return void
      */
+
+    //Create a new question
     public function run()
     {
         DB::table('question')->insert([

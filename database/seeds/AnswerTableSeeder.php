@@ -9,6 +9,8 @@ class AnswerTableSeeder extends Seeder
      *
      * @return void
      */
+
+    // add in some example responses
     public function run()
     {
         DB::table('Answer')->insert([

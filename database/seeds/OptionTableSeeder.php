@@ -9,6 +9,8 @@ class OptionTableSeeder extends Seeder
      *
      * @return void
      */
+
+    //Add in some sample options
         public function run()
     {
         DB::table('option')->insert([

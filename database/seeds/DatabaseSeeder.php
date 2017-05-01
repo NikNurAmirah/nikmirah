@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
 
         Model::reguard();
 
+        //Run all seeders
         $this->call(UserTableSeeder::class);
         $this->call(RoleUserTableSeeder::class);
         $this->call(PermissionRoleTableSeeder::class);
