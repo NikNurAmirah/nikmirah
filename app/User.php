@@ -11,6 +11,7 @@ class User extends Authenticatable
      *
      * @var array
      */
+    //Shows the fields in the table that can be filled from the system
     protected $fillable = [
         'name', 'email', 'password',
     ];
@@ -20,14 +21,17 @@ class User extends Authenticatable
      *
      * @var array
      */
+    //Shows the fields in the table that are hidden in system
     protected $hidden = [
         'password', 'remember_token',
     ];
 
+    //A role has many users
     public function roles(){
         return $this->belongsToMany(Role::class);
     }
 
+    //A user has many surveys
     public function survey()
     {
         return $this->hasMany('App\Survey');
