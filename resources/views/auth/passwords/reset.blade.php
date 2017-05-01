@@ -1,6 +1,8 @@
-@extends('layouts.master')
+@extends('layouts.master'){{-- This calls in the master view in the layout file. This is the template --}}
 
-@section('content')
+{{--This view is all already made by Laravel's auth scaffolding, it just references the master view created to apply the websites styling--}}
+
+@section('content') {{-- This calls the yield function in the master view, so all content is between the 'content' tag --}}
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
